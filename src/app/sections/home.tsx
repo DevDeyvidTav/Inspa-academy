@@ -5,10 +5,10 @@ import { PhotosGroup } from "../components/photos-group";
 
 export function Home() {
     return (
-        <div className="bg-home lg:bg-home-pc bg-cover bg-no-repeat z-40 w-full h-screen">
+        <div id="home" className="bg-home lg:bg-home-pc bg-cover bg-no-repeat z-40 w-full h-screen">
             <Header />
-            <div className="px-8 lg:hidden">
-                <Image src="/logo1.png" className="mx-auto my-8" alt="logo do inspa" width={100} height={100}></Image>
+            <div className="px-8 py-8 lg:hidden">
+                <Image src="/logo1.png" className="mx-auto py-8" alt="logo do inspa" width={100} height={100}></Image>
                 <p className="text-white font-bold text-2xl  my-8">
                     Aprenda programação e inicie sua brilhante carreira como <span className="text-secondary">Dev.</span>
                 </p>
@@ -33,7 +33,7 @@ export function Home() {
                 </div>
                 <PhotosGroup />
             </div>
-            <div className="max-w-[1400px] mx-auto hidden lg:grid">
+            <div className="max-w-[1400px] pt-20 mx-auto hidden lg:grid">
                 <div className=" flex justify-between items-start gap-4 ">
                     <div className="w-[25%] mt-8">
                         <p className="text-white text-[18px]">

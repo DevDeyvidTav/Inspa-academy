@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function About() {
     return (
-        <div className="w-full">
+        <div id="about" className="w-full">
             <div className="w-full lg:max-w-[1400px] mx-auto lg:px-0 text-white px-8 md:mt-72 lg:mt-40 mt-[60vh]">
                 <div className="lg:flex lg:justify-center lg:items-start">
                     <h2 className="text-3xl font-bold ">Sobre nós</h2>

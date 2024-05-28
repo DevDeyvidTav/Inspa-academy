@@ -1,7 +1,11 @@
+"use client"
+
+import { useRouter } from "next/navigation";
 import { FaArrowUp } from "react-icons/fa6";
 import { IoLogoFacebook, IoLogoInstagram, IoLogoYoutube } from "react-icons/io";
 
 export function Footer() {
+    const router = useRouter();
     return (
         <div className="bg-[#252525] py-8">
             <div className="w-full lg:max-w-[1400px] mx-auto lg:px-0 text-white px-8">
@@ -11,7 +15,7 @@ export function Footer() {
                             academy
                         </span>
                     </h2>
-                    <button className="w-12 h-12 bg-secondary hover:opacity-80 duration-300 flex justify-center items-center">
+                    <button onClick={() => router.push("#home")} className="w-12 h-12 bg-secondary hover:opacity-80 duration-300 flex justify-center items-center">
                         <FaArrowUp className="text-black" />
                     </button>
                 </div>

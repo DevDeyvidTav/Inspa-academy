@@ -1,10 +1,13 @@
 "use client"
 
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
 import { FaArrowUp } from "react-icons/fa6";
 import { IoLogoFacebook, IoLogoInstagram, IoLogoYoutube } from "react-icons/io";
+import { LangContext } from "../contexts/langContext";
 
 export function Footer() {
+    const { lang, setLang } = useContext(LangContext);
     const router = useRouter();
     return (
         <div className="bg-[#252525] py-8">
@@ -21,19 +24,19 @@ export function Footer() {
                 </div>
                 <div className="mt-8 lg:mt-16">
                     <p className="text-xl font-bold ">
-                        Fique por dentro de todas as <span className="text-secondary">
-                            novidades
+                        {lang !== "en" ? "Fique por dentro de todas as" : "Stay up to date with"} <span className="text-secondary">
+                           {lang !== "en" ? "novidades" : "news"}
                         </span>
                     </p>
                     <div className="flex gap-2 items-center mt-4 pb-8 lg:pb-16 border-b-[0.5px]">
-                        <input placeholder="Digite seu email" className="bg-[#0D0D0D] text-white px-4 h-12" />
+                        <input placeholder={lang !== "en" ? "Digite seu email" : "Enter your email"} className="bg-[#0D0D0D] text-white px-4 h-12" />
                         <button className="bg-white text-black font-semibold px-4 h-12">
-                            Enviar
+                            {lang !== "en" ? "Enviar" : "Send"}
                         </button>
                     </div>
                     <div className="flex justify-between mt-8">
                         <p>
-                        copyright © 2024. Todos os direitos reservados.
+                        copyright © 2024. {lang !== "en" ? "Todos os direitos reservados" : "All rights reserved"}
                         </p>
 
                         <div className="flex gap-4">

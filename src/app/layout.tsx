@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { LangProvider } from "./contexts/langContext";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
@@ -16,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ptBR">
-      <body style={{background: "#1E1E1E"}} className={inter.className}>{children}</body>
+        <LangProvider>
+            <body style={{background: "#1E1E1E"}} className={inter.className}>{children}</body>
+        </LangProvider>
     </html>
   );
 }

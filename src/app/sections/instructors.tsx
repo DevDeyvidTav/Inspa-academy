@@ -1,13 +1,17 @@
 "use client"
 
+import { useContext } from "react"
+import { LangContext } from "../contexts/langContext"
+
 export function Instructors() {
+    const {lang, setLang} = useContext(LangContext)
     return (
         <div id="#instructors" className="pb-8">
             <div className="w-full lg:max-w-[1400px] mx-auto lg:px-0 text-white px-8 ">
                 <div className="lg:flex lg:justify-center">
                     <h2 className="text-2xl py-8 font-bold">
-                        Alguns de nossos <span className="text-secondary">
-                            instrutores
+                        {lang !== "en" ? "Alguns de nossos" : "Some of our"} <span className="text-secondary">
+                            {lang !== "en" ? "instrutores" : "instructors"}
                         </span>
                     </h2>
                 </div>

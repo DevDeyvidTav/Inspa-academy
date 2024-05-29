@@ -3,26 +3,39 @@
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MdOutlineMenu } from "react-icons/md";
+import Cookie from "js-cookie";
+import { Select, SelectContent, SelectTrigger, SelectItem } from "@/components/ui/select";
+import { TbWorld } from "react-icons/tb"
+import { LangContext } from "../contexts/langContext";
+
 
 
 export function Header() {
     const [bgColor, setBgColor] = useState("")
     const [isOpen, setIsOpen] = useState(false)
+    const { lang, setLang } = useContext(LangContext)
     function handleScrollToggleTransparent() {
         if (window.scrollY > 0) {
             return setBgColor("bg-[#252525]")
         }
         return setBgColor("bg-transparent")
     }
+    useEffect(() => {
+        const lang = Cookie.get("lang")
+        setLang(lang || "pt")
+    }, [])
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
             handleScrollToggleTransparent()
         })
     }, [])
-
+    const onSelectLang = (value: string) => {
+        setLang(value)
+        Cookie.set("lang", value)
+    }
     return (
         <div className={`w-full ${bgColor} duration-300 fixed z-50  text-white`}>
             <div className="h-16 lg:hidden flex justify-between items-center px-8">
@@ -46,11 +59,23 @@ export function Header() {
                                     INSPA
                                 </p>
                             </div>
-                            <Link onClick={() => setIsOpen(false)} className="hover:opacity-80 duration-300" href="/#about">Sobre</Link>
-                            <Link onClick={() => setIsOpen(false)} className="hover:opacity-80 duration-300" href="/#instructors">Nossos instrutores</Link>
-                            <Link onClick={() => setIsOpen(false)} className="hover:opacity-80 duration-300" href="/#partners">Parceiros</Link>
+                            <Select onValueChange={(value) => {
+                                onSelectLang(value)
+                            }}>
+                                <SelectTrigger className=" border-none mb-14  bg-[#252525]">
+                                    <TbWorld className="text-white" />
+                                    {lang === "pt" ? "Português" : "English"}
+                                </SelectTrigger>
+                                <SelectContent className=" bg-[#252525] text-white p-2 w-full">
+                                    <SelectItem value="pt">Português</SelectItem>
+                                    <SelectItem value="en">English</SelectItem>
+                                </SelectContent>
+                            </Select>
+                            <Link onClick={() => setIsOpen(false)} className="hover:opacity-80 duration-300" href="/#about">{lang !== "en" ? "Sobre" : "About"}</Link>
+                            <Link onClick={() => setIsOpen(false)} className="hover:opacity-80 duration-300" href="/#instructors">{lang !== "en" ? "Nossos instrutores" : "Instructors"}</Link>
+                            <Link onClick={() => setIsOpen(false)} className="hover:opacity-80 duration-300" href="/#partners">{lang !== "en" ? "Parceiros" : "Partners"}</Link>
                             <button className="bg-white w-56 text-black font-bold py-1">
-                                Entrar em contato
+                                {lang !== "en" ? "Contato" : "Contact"}
                             </button>
                         </div>
                     </SheetContent>
@@ -68,23 +93,37 @@ export function Header() {
                 <div className="flex items-center text-zinc-300 gap-4">
                     <Link className="hover:opacity-80 duration-300" href="/#about">
                         <p className="text-sm font-medium">
-                            Sobre nós
+                            {lang !== "en" ? "Sobre" : "About"}
                         </p>
                     </Link>
                     <Link className="hover:opacity-80 duration-300" href="/#instructors">
                         <p className="text-sm font-medium">
-                            Nossos instrutores
+                            {lang !== "en" ? "Nossos instrutores" : "Instructors"}
                         </p>
                     </Link>
                     <Link className="hover:opacity-80 duration-300" href="/#partners">
                         <p className="text-sm font-medium">
-                            Parceiros
+                            {lang !== "en" ? "Parceiros" : "Partners"}
                         </p>
                     </Link>
                 </div>
-                <button className="bg-white text-black font-bold px-4 h-12 hover:bg-secondary duration-500">
-                    Entrar em contato
-                </button>
+                <div className="flex items-center gap-4">
+                    <button className="bg-white text-black font-bold w-48 h-12 hover:bg-secondary duration-500">
+                        {lang !== "en" ? "Entrar em contato" : "Contact us"}
+                    </button>
+                    <Select onValueChange={(value) => {
+                        onSelectLang(value)
+                    }}>
+                        <SelectTrigger className=" border-none w-32 h-12 bg-[#252525]">
+                            <TbWorld className="text-white" />
+                            {lang === "pt" ? "Português" : "English"}
+                        </SelectTrigger>
+                        <SelectContent className=" bg-[#252525] text-white p-2 w-full">
+                            <SelectItem value="pt">Português</SelectItem>
+                            <SelectItem value="en">English</SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
             </div>
         </div>
     )

@@ -22,9 +22,9 @@ export function EventsCaroussel() {
             onMouseLeave={plugin.current.reset}
             className="w-[100%] md:w-[70%] lg:w-[90%] mx-auto -z-0   max-w-full">
             <CarouselContent className="w-full ">
-                <CarouselItem className="w-full bg-cover md:h-96 bg-zinc-300 h-56 lg:h-72">...</CarouselItem>
-                <CarouselItem  className="w-full bg-cover md:h-96 bg-zinc-300 h-56 lg:h-72">...</CarouselItem>
-                <CarouselItem  className="w-full bg-cover md:h-96 bg-zinc-300 h-56 lg:h-72">...</CarouselItem>
+                <CarouselItem className="w-full bg-cover md:h-96 bg-zinc-300 h-56 lg:h-72"></CarouselItem>
+                <CarouselItem  className="w-full bg-cover md:h-96 bg-zinc-300 h-56 lg:h-72"></CarouselItem>
+                <CarouselItem  className="w-full bg-cover md:h-96 bg-zinc-300 h-56 lg:h-72"></CarouselItem>
             </CarouselContent>
             <CarouselPrevious className="hidden text-secondary md:flex bg-transparent border-none" />
             <CarouselNext className="hidden md:flex text-secondary bg-transparent border-none" />

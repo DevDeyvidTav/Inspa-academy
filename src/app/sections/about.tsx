@@ -3,17 +3,25 @@
 import { EventsCaroussel } from "@/components/events";
 import Image from "next/image";
 import { LangContext } from "../contexts/langContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import Aos from "aos"
+import 'aos/dist/aos.css'
 
 export function About() {
+    useEffect(() => {
+        Aos.init({
+            duration: 400,
+            easing: "ease-out"
+        })
+    },[])
     const {lang, setLang} = useContext(LangContext)
     return (
         <div id="about" className="w-full">
-            <div className="w-full lg:max-w-[1400px] mx-auto lg:px-0 text-white px-8 md:mt-72 lg:mt-40 mt-[60vh]">
-                <div className="lg:flex lg:justify-center lg:items-start">
+            <div  className="w-full lg:max-w-[1400px] mx-auto lg:px-0 text-white px-8 md:mt-72 lg:mt-40 mt-[60vh]">
+                <div data-aos="fade-up" className="lg:flex lg:justify-center lg:items-start">
                     <h2 className="text-3xl font-bold ">{lang !== "en" ? "Sobre" : "About"}</h2>
                 </div>
-                <div className="lg:flex lg:flex-row-reverse lg:mt-20 lg:mb-10">
+                <div data-aos="fade-up" className="lg:flex lg:flex-row-reverse lg:mt-20 lg:mb-10">
                     <p className="my-8 lg:w-[60%]">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
@@ -25,7 +33,7 @@ export function About() {
                     </p>
                     <Image src="/logo2.png" className="mx-auto my-8" alt="logo do inspa" width={150} height={150}></Image>
                 </div>
-                <div className="lg:flex lg:gap-8 ">
+                <div data-aos="fade-up" className="lg:flex lg:gap-8 ">
                     <div className="w-full h-96 p-4 bg-[#252525] mt-16 mb-8 lg:m-0">
                         <h2 className="text-3xl font-semibold">
                             {lang !== "en" ? "Nossa missão" : "Our mission"}
@@ -39,7 +47,7 @@ export function About() {
                         <p className="mt-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
                     </div>
                 </div>
-                <div className="lg:hidden">
+                <div data-aos="fade-up" className="lg:hidden">
                     <h2 className="font-bold text-2xl mb-8">
                         {lang !== "en" ? "Eventos que promovemos" : "Events that we promote"}
                     </h2>
@@ -55,7 +63,7 @@ export function About() {
                 </div>
 
             </div>
-            <div className="hidden text-white lg:flex my-16 border-b-[0.5px] justify-between h-[70vh]">
+            <div data-aos="fade-up" className="hidden text-white lg:flex my-16 border-b-[0.5px] justify-between h-[70vh]">
                 <div className="w-[20%] border-r-[0.5px] flex flex-col justify-center gap-10 items-center">
                     <div className="text-center">
                         <h3 className="text-2xl font-semibold">
@@ -70,7 +78,7 @@ export function About() {
                         <p className="text-zinc-600">{lang !== "en" ? "Colaboradores" : "Collaborators"}</p>
                     </div>
                 </div>
-                <div className="w-[75%] flex flex-col pb-8 justify-between">
+                <div data-aos="fade-up" className="w-[75%] flex flex-col pb-8 justify-between">
                     <h2 className="text-3xl font-bold mt-4">
                         {lang !== "en" ? "Eventos que promovemos" : "Events that we promote"}
                     </h2>

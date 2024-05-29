@@ -114,7 +114,7 @@ export function Header() {
                     <Select onValueChange={(value) => {
                         onSelectLang(value)
                     }}>
-                        <SelectTrigger className=" border-none w-32 h-12 bg-[#252525]">
+                        <SelectTrigger className=" border-none w-36 h-12 bg-transparent">
                             <TbWorld className="text-white" />
                             {lang === "pt" ? "Português" : "English"}
                         </SelectTrigger>

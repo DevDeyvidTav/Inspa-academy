@@ -1,13 +1,18 @@
 "use client"
 
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { LangContext } from "../contexts/langContext"
+import Aos from "aos"
+import 'aos/dist/aos.css'
 
 export function Instructors() {
     const {lang, setLang} = useContext(LangContext)
+    useEffect(() => {
+        Aos.init({ duration: 400, easing: "ease-out" })
+    },[])
     return (
         <div id="#instructors" className="pb-8">
-            <div className="w-full lg:max-w-[1400px] mx-auto lg:px-0 text-white px-8 ">
+            <div data-aos="fade-up" className="w-full lg:max-w-[1400px] mx-auto lg:px-0 text-white px-8 ">
                 <div className="lg:flex lg:justify-center">
                     <h2 className="text-2xl py-8 font-bold">
                         {lang !== "en" ? "Alguns de nossos" : "Some of our"} <span className="text-secondary">

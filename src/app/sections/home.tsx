@@ -15,7 +15,7 @@ export function Home() {
     })
     const { lang, setLang } = useContext(LangContext);
     return (
-        <div id="home" className="bg-home lg:bg-home-pc bg-cover bg-no-repeat z-40 w-full h-screen">
+        <div id="home" className="bg-home lg:bg-home-pc  bg-cover bg-no-repeat z-40 w-full">
             <Header />
             <div data-aos="fade-up" className="px-8 py-8 lg:hidden">
                 <Image src="/logo1.png" className="mx-auto py-8" alt="logo do inspa" width={100} height={100}></Image>

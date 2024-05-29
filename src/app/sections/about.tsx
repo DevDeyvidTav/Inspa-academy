@@ -17,7 +17,7 @@ export function About() {
     const {lang, setLang} = useContext(LangContext)
     return (
         <div id="about" className="w-full">
-            <div  className="w-full lg:max-w-[1400px] mx-auto lg:px-0 text-white px-8 md:mt-72 lg:mt-40 mt-[75vh]">
+            <div  className="w-full lg:max-w-[1400px] mx-auto lg:px-0 text-white px-8 md:mt-72 lg:mt-40 mt-8">
                 <div data-aos="fade-up" className="lg:flex lg:justify-center lg:items-start">
                     <h2 className="text-3xl font-bold ">{lang !== "en" ? "Sobre" : "About"}</h2>
                 </div>

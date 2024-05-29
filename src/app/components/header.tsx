@@ -41,10 +41,10 @@ export function Header() {
             <div className="h-16 lg:hidden flex justify-between items-center px-8">
                 <Link href="/#">
                     <p className="text-xl font-bold">
-                        INSPA
-                        <span className="text-secondary">
-                            Academy
+                        INSPA <span className="text-secondary">
+                             academy
                         </span>
+                      
                     </p>
                 </Link>
                 <Sheet open={isOpen} onOpenChange={setIsOpen} >
